@@ -1,0 +1,102 @@
+#+title: Readme
+#+Author: Pascal Jaeger
+#+OPTIONS: toc:3
+
+* Table of contents :TOC_3_gh:QUOTE:
+#+BEGIN_QUOTE
+- [[#installation][Installation]]
+  - [[#adding-this-repository][Adding this repository]]
+    - [[#with-eselect-repository][With eselect-repository]]
+    - [[#manually][Manually]]
+  - [[#installing-the-launcher][Installing the launcher]]
+    - [[#unmask-amd64-for-the-launcher][Unmask ~amd64 for the launcher]]
+- [[#uninstallation][Uninstallation]]
+#+END_QUOTE
+
+* Installation
+** Adding this repository
+To install one of the launchers with Portage, you have to add this github repo
+into portage's repositories.
+
+*** With eselect-repository
+If you haven't already, emerge [[https://wiki.gentoo.org/wiki/Eselect/Repository][eselect-repository]] with
+
+#+begin_src bash
+emerge --ask app-eselect/eselect-repository
+#+end_src
+
+Now add the repository with
+
+#+begin_src bash
+eselect repository add the-anime-team git https://github.com/an-anime-team/gentoo-ebuilds.git
+#+end_src
+#+begin_src bash
+emaint sync -r the-anime-team
+#+end_src
+
+*** Manually
+If /etc/portage/repos.conf is a file, add the following lines to that
+file, if /etc/portage/repos.conf is a directory, add a new file with
+~touch /etc/portage/repos.conf/theanimeteam.conf~ and put the
+following into it:
+
+#+begin_src bash
+[the-anime-team]
+location = /var/db/repos/the-anime-team
+sync-type = git
+sync-uri = https://github.com/an-anime-team/gentoo-ebuilds.git
+priority = 100
+#+end_src
+
+Then sync your local ebuild cache with ~emaint sync -r the-anime-team~
+
+** Installing the launcher
+After adding the repository you can emerge the launcher.
+#+begin_src bash
+emerge --ask games-misc/an-anime-game-launcher
+#+end_src
+Similarly to install the honkers launcher use the command
+#+begin_src bash
+emerge --ask games-misc/honkers-launcher
+#+end_src
+
+*** Unmask ~amd64 for the launcher
+Depending on how the system is set up, it could be that portage refuses to install the packages in this repository, because the ~~amd64~ keyword is masked for them.
+In this case, unmask the keyword for the package.
+#+begin_src bash
+emerge --ask games-misc/an-anime-game-launcher --autounmask
+#+end_src
+or
+#+begin_src bash
+emerge --ask games-misc/honkers-launcher --autounmask
+#+end_src
+After that run ~dispatch-conf~ to write it to the configs of portage (or ~etc-update~ if you prefer that).
+
+For further information see [[https://wiki.gentoo.org/wiki/Knowledge_Base:Unmasking_a_package][the gentoo wiki.]]
+
+* Uninstallation
+To uninstall just deselect the package and run a depclean
+#+begin_src bash
+emerge --deselect an-anime-game-launcher
+#+end_src
+To uninstall the honkers launcher use
+#+begin_src bash
+emerge --deselect an-anime-game-launcher
+#+end_src
+In all cases use depclean to remove the unneeded packages
+#+begin_src bash
+emerge --depclean
+#+end_src
+
+To remove the whole repository from your and ~/etc/portage/repos.conf~ is a file, delete the respective lines from ~repos.conf~, if it is a directory, system execute:
+#+begin_src bash
+rm /etc/portage/repos.conf/theanimeteam.conf # if the repository was manually added and repos.conf is a directory
+#+end_src
+or
+#+begin_src bash
+eselect repository disable -f the-anime-team # if the repository was added via eselect
+#+end_src
+And delete the locally stored repository data:
+#+begin_src bash
+rm -rf /var/db/repos/the-anime-team
+#+end_src
