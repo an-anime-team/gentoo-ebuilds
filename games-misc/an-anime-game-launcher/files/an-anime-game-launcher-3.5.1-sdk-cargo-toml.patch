@@ -1,0 +1,14 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,8 +21,9 @@
+ tracing = "0.1"
+ 
+ [dependencies.anime-game-core]
+-git = "https://github.com/an-anime-team/anime-game-core"
+-tag = "1.7.0"
++# git = "https://github.com/an-anime-team/anime-game-core"
++path = "../anime-game-core"
++# tag = "1.7.0"
+ features = ["all"]
+ 
+ [dependencies.anyhow]

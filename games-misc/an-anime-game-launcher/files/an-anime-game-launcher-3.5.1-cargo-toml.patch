@@ -1,0 +1,23 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -8,7 +8,7 @@ edition = "2021"
+ build = "build.rs"
+
+ [profile.release]
+-strip = true
++strip = false
+ lto = true
+ opt-level = "s"
+
+@@ -16,8 +16,9 @@ opt-level = "s"
+ glib-build-tools = "0.17"
+ 
+ [dependencies.anime-launcher-sdk]
+-git = "https://github.com/an-anime-team/anime-launcher-sdk"
+-tag = "1.0.2"
++# git = "https://github.com/an-anime-team/anime-launcher-sdk"
++path = "../cargo_home/gentoo/anime-launcher-sdk"
++# tag = "1.0.2"
+ features = ["all", "genshin"]
+ 
+ # path = "../anime-launcher-sdk" # ! for dev purposes only
