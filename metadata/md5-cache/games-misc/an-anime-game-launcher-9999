@@ -11,5 +11,9 @@ PROPERTIES=live
 RDEPEND=gui-libs/libadwaita app-arch/tar app-arch/unzip dev-util/xdelta:3[lzma] app-arch/cabextract dev-vcs/git net-misc/curl >=gui-libs/gtk-4 net-misc/iputils virtual/libc sys-auth/polkit !!games-misc/an-anime-game-launcher-gtk
 RESTRICT=mirror
 SLOT=0
+<<<<<<< HEAD
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	cargo	13d82eeaf1c62efca46b4a826ea76f80	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	27e13c09a4c7e4c78ac812f74727e676	xdg-utils	baea6080dd821f5562d715887954c9d3
+=======
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	104e1332efb829e2f7cbf89307a474f1	cargo	2e0a4a329a7dc5dfe20dcb05e6c36935	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	27e13c09a4c7e4c78ac812f74727e676	xdg-utils	baea6080dd821f5562d715887954c9d3
+>>>>>>> main
 _md5_=ec239539d13a773672c0901c1a920c9a
