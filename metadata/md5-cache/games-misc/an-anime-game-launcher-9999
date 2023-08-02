@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=gui-libs/libadwaita app-arch/tar app-arch/unzip dev-util/xdelta:3[lzma] app-arch/cabextract dev-vcs/git net-misc/curl >=gui-libs/gtk-4 net-misc/iputils virtual/libc sys-auth/polkit !!games-misc/an-anime-game-launcher-gtk
 RESTRICT=mirror
 SLOT=0
-_eclasses_=toolchain-funcs	8e3fb781f3258ae2757d1dfc2c7c170e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	cargo	8520ae1bed0e6965d027399b471a3595	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	97f7f638070d17e4c2b6542589bb4575	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	ad475baa777c9978fa035216c8264a10	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	cargo	8520ae1bed0e6965d027399b471a3595	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	2358a7b20091609e24bd3a83b3ac5991	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=ec239539d13a773672c0901c1a920c9a
