@@ -21,7 +21,6 @@ DEPEND="
 
 RDEPEND="
 	${DEPEND}
-	!!games-misc/an-anime-game-launcher-gtk
 "
 
 BDEPEND=">=virtual/rust-1.63"
