@@ -387,6 +387,7 @@ DEPEND="
 	gui-libs/libadwaita:1
 	x11-libs/cairo
 	x11-libs/pango
+	app-arch/p7zip
 "
 
 RDEPEND="${DEPEND}"
