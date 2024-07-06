@@ -81,7 +81,7 @@ emerge --deselect an-anime-game-launcher
 #+end_src
 To uninstall the honkers launcher use
 #+begin_src bash
-emerge --deselect an-anime-game-launcher
+emerge --deselect honkers-launcher
 #+end_src
 In all cases use depclean to remove the unneeded packages
 #+begin_src bash
