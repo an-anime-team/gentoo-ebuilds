@@ -61,7 +61,7 @@ emerge --ask games-misc/honkers-launcher
 #+end_src
 
 *** Unmask ~amd64 for the launcher
-Depending on how the system is set up, it could be that portage refuses to install the packages in this repository, because the ~~amd64~ keyword is masked for them.
+Depending on how the system is set up, it could be that portage refuses to install the packages in this repository, because the =~amd64= keyword is masked for them.
 In this case, unmask the keyword for the package.
 #+begin_src bash
 emerge --ask games-misc/an-anime-game-launcher --autounmask
@@ -81,7 +81,7 @@ emerge --deselect an-anime-game-launcher
 #+end_src
 To uninstall the honkers launcher use
 #+begin_src bash
-emerge --deselect an-anime-game-launcher
+emerge --deselect honkers-launcher
 #+end_src
 In all cases use depclean to remove the unneeded packages
 #+begin_src bash
