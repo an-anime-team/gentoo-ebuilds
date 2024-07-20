@@ -370,7 +370,6 @@ DEPEND="
 	app-arch/tar
 	app-arch/unzip
 	app-arch/p7zip
-	dev-util/xdelta:3[lzma]
 	app-arch/cabextract
 	dev-vcs/git
 	net-misc/curl
