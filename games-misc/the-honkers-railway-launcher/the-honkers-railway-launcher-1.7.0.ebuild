@@ -385,6 +385,9 @@ DEPEND="
 	net-misc/iputils
 	virtual/libc
 	sys-auth/polkit
+	media-libs/gst-plugins-good
+	media-libs/gst-plugins-bad
+	media-plugins/gst-plugins-libav
 
 	app-arch/xz-utils
 	dev-libs/glib:2
