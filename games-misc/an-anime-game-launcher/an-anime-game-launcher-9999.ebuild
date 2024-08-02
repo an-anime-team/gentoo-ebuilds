@@ -17,6 +17,7 @@ DEPEND="
 	net-misc/iputils
 	virtual/libc
 	sys-auth/polkit
+	media-libs/libwebp
 "
 
 RDEPEND="
