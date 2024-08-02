@@ -388,6 +388,7 @@ DEPEND="
 	media-libs/gst-plugins-good
 	media-libs/gst-plugins-bad
 	media-plugins/gst-plugins-libav
+	media-libs/libwebp
 
 	app-arch/xz-utils
 	dev-libs/glib:2
