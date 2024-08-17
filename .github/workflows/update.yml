@@ -1,0 +1,88 @@
+name: Update a package
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Name of the launcher package to update'
+        required: true
+        type: choice
+        options:
+          - an-anime-game-launcher
+          - anime-games-launcher
+          - honkers-launcher
+          - the-honkers-railway-launcher
+          - sleepy-launcher
+      version:
+        description: 'Version of the package to generate, a github release tag'
+        required: true
+        type: string
+
+jobs:
+  generate_update:
+    runs-on: ubuntu-latest
+
+    container:
+      image: ghcr.io/johnthecoolingfan/gentoo-action-image:main
+
+    env:
+      PACKAGE_REF: "${{ inputs.version }}"
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Install pycargoebuild
+        run: emerge app-portage/pycargoebuild
+
+      # Normalize so that both X.Y.Z and vX.Y.Z are handled properly
+      - name: Normalize version
+        run: |
+          echo "PACKAGE_VERSION=${PACKAGE_REF#v}" >> $GITHUB_ENV
+          echo "NEW_PACKAGE_EBUILD=${{ inputs.package }}-${PACKAGE_REF#v}.ebuild" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: repo
+
+      - name: Checkout launcher repository
+        uses: actions/checkout@v4
+        with:
+          repository: "an-anime-team/${{ inputs.package }}"
+          ref: ${{ inputs.version }}
+          path: ${{ inputs.package }}
+
+      - name: Create new ebuild file
+        run: |
+          cp $( find "repo/games-misc/${{ inputs.package }}" -regextype sed -regex ".*/${{ inputs.package}}-[0-9]\+\.[0-9]\+\.[0-9]\+\.ebuild" | sort | tail -n1 ) "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}"
+
+      - name: Run pycargoebuild
+        run: pycargoebuild --inplace "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" "./${{ inputs.package }}/"
+
+      - name: Run pkgcheck scan
+        working-directory: ./repo/games-misc/${{ inputs.package }}
+        run: pkgcheck scan
+
+      - name: Install dependencies for building the package from ebuild
+        run: emerge dev-lang/rust-bin
+
+      - name: Build the package from ebuild
+        run: ebuild "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" clean test install
+
+      - name: Commit repository changes
+        working-directory: ./repo
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add .
+          pkgdev commit -m "games-misc/${{ inputs.package }}: add ${{ inputs.version }}"
+
+      - name: Create a pull request with the new ebuild
+        uses: peter-evans/create-pull-request@v6
+        with:
+          path: ./repo
+          branch: ${{ inputs.package }}-${{ inputs.version }}
+          title: "games-misc/${{ inputs.package }}: add ${{ inputs.version }}"
+          body: "Automated update to games-misc/${{ inputs.package }}: new version [${{ inputs.version }}](https://github.com/an-anime-team/${{ inputs.package }}/releases/tag/${{ inputs.version }})"
