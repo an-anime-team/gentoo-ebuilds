@@ -56,7 +56,7 @@ jobs:
 
       - name: Create new ebuild file
         run: |
-          cp $( find "repo/games-misc/${{ inputs.package }}" -regextype sed -regex ".*/${{ inputs.package}}-[0-9]\+\.[0-9]\+\.[0-9]\+\.ebuild" | sort | tail -n1 ) "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}"
+          cp $( find "repo/games-misc/${{ inputs.package }}" -regextype sed -regex ".*/${{ inputs.package }}-[0-9]\+\.[0-9]\+\.[0-9]\+\.ebuild" | sort | tail -n1 ) "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}"
 
       - name: Run pycargoebuild
         run: pycargoebuild --inplace "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" "./${{ inputs.package }}/"
@@ -65,11 +65,14 @@ jobs:
         working-directory: ./repo/games-misc/${{ inputs.package }}
         run: pkgcheck scan
 
-        #- name: Install dependencies for building the package from ebuild
-        #run: emerge --autounmask y --autounmask-continue y dev-lang/rust-bin
+      - name: Install the resulting repository
+        run: ./repo/.github/workflow-utils/add-repo.sh
 
-        #- name: Build the package from ebuild
-        #run: ebuild "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" clean test install
+      - name: Install dependencies of the package
+        run: emerge --autounmask y --autounmask-continue y --onlydeps "=games-misc/${NEW_PACKAGE_EBUILD%.ebuild}"
+
+      - name: Try to build and install (merge) the package
+        run: emerge --autounmask y --autounmask-continue y "=games-misc/${NEW_PACKAGE_EBUILD%.ebuild}"
 
       - name: Commit repository changes
         working-directory: ./repo
