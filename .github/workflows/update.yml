@@ -65,11 +65,11 @@ jobs:
         working-directory: ./repo/games-misc/${{ inputs.package }}
         run: pkgcheck scan
 
-      - name: Install dependencies for building the package from ebuild
-        run: emerge --autounmask y --autounmask-continue y dev-lang/rust-bin dev-libs/glib dev-libs/gobject-introspection x11-libs/gdk-pixbuf app-arch/bzip2 x11-libs/cairo x11-libs/pango media-libs/graphene
+        #- name: Install dependencies for building the package from ebuild
+        #run: emerge --autounmask y --autounmask-continue y dev-lang/rust-bin
 
-      - name: Build the package from ebuild
-        run: ebuild "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" clean test install
+        #- name: Build the package from ebuild
+        #run: ebuild "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" clean test install
 
       - name: Commit repository changes
         working-directory: ./repo
