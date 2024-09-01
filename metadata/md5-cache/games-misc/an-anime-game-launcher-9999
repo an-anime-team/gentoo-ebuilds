@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=gui-libs/libadwaita app-arch/tar app-arch/unzip dev-util/xdelta:3[lzma] app-arch/cabextract dev-vcs/git net-misc/curl >=gui-libs/gtk-4 net-misc/iputils virtual/libc sys-auth/polkit media-libs/libwebp
 RESTRICT=mirror
 SLOT=0
-_eclasses_=toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	rust-toolchain	68a6453cb41148db1da01fa2267527f0	cargo	67ea64209e3442a3a0e095f048d43a62	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	875eb471682d3e1f18da124be97dcc81	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=toolchain-funcs	333970c740aa7b1a92e4fcdc52f612bd	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	e503ea5acc20410237ba33ec3f7c857d	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	rust-toolchain	3f822985d9297438ed2443aa1fbdf33e	cargo	c806360bab90e2b49223df1810172c2b	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	875eb471682d3e1f18da124be97dcc81	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=2143873ea2825d6247c542861a2ffa5e
