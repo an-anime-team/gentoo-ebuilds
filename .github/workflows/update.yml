@@ -66,13 +66,15 @@ jobs:
         run: pkgcheck scan
 
       - name: Install the resulting repository
-        run: ./repo/.github/workflow-utils/add-repo.sh
+        run: ./repo/.github/workflow-utils/add-repo.sh ./repo
 
       - name: Install dependencies of the package
-        run: emerge --autounmask y --autounmask-continue y --onlydeps "=games-misc/${NEW_PACKAGE_EBUILD%.ebuild}"
+        run: |
+          emerge --autounmask y --autounmask-continue y --onlydeps "=games-misc/${{ inputs.package }}-${PACKAGE_VERSION}"
 
       - name: Try to build and install (merge) the package
-        run: emerge --autounmask y --autounmask-continue y "=games-misc/${NEW_PACKAGE_EBUILD%.ebuild}"
+        run: |
+          emerge --autounmask y --autounmask-continue y "=games-misc/${{ inputs.package }}-${PACKAGE_VERSION}"
 
       - name: Commit repository changes
         working-directory: ./repo
