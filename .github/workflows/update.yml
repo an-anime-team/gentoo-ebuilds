@@ -20,6 +20,7 @@ on:
 
 jobs:
   generate_update:
+    name: Generate update for ${{ inputs.package }} ${{ inputs.version }}
     runs-on: ubuntu-latest
 
     container:
