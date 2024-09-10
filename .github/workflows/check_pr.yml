@@ -1,0 +1,77 @@
+
+name: Update a package
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  extract_changed_files:
+    name: Extract files changed in a PR
+    runs-on: ubuntu-latest
+
+    container:
+      image: ghcr.io/johnthecoolingfan/gentoo-action-image:desktop
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run pkgcheck scan
+        working-directory: ./repo/games-misc/${{ inputs.package }}
+        run: pkgcheck scan
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+
+      - name: Filter changed files
+        id: ebuild-files
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          echo "::set-output name=matrix::$(printf '%s\n' "${ALL_CHANGED_FILES[@]}" | grep '\.ebuild$' | jq -R . | jq -sc .)"
+
+  test_changed_packages:
+    name: Test build changed packages
+    runs-on: ubuntu-latest
+
+    needs: extract_changed_files
+
+    container:
+      image: ghcr.io/johnthecoolingfan/gentoo-action-image:desktop
+
+    defaults:
+      run:
+        shell: bash
+
+    strategy:
+      package: ${{ fromJson(needs.extract_changed_files.outputs.matrix) }}
+
+    env:
+      PACKAGE_FILE: ${{ matrix.package }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install repo
+        run: |
+          ./.github/workflow-utils/add-repo.sh ./
+
+      - name: bash var shenanigans
+        run: |
+          echo "PACKAGE_FILENAME=$(basename ${PACKAGE_FILE})" >> $GITHUB_ENV
+
+      - name: Install dependencies of the package
+        run: |
+          emerge --autounmask y --autounmask-continue y --onlydeps "=games-misc/${PACKAGE_FILENAME#.ebuild}"
+
+      - name: Try to build and install (merge) the package
+        run: |
+          emerge --autounmask y --autounmask-continue y "=games-misc/${PACKAGE_FILENAME#.ebuild}"
