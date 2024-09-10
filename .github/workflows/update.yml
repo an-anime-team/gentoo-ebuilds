@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: ghcr.io/johnthecoolingfan/gentoo-action-image:desktop
+      image: ghcr.io/johnthecoolingfan/gentoo-action-image:latest
 
     env:
       PACKAGE_REF: "${{ inputs.version }}"
