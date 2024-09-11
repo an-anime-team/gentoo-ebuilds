@@ -22,7 +22,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run pkgcheck scan
-        working-directory: ./repo/games-misc/${{ inputs.package }}
         run: pkgcheck scan
 
       - name: Get changed files
