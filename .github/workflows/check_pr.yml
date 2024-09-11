@@ -1,5 +1,4 @@
-
-name: Update a package
+name: Test build changed packages on pr
 
 on:
   pull_request:
