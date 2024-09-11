@@ -387,6 +387,7 @@ DEPEND="
 	media-libs/libwebp
 
 	app-arch/xz-utils
+	app-arch/p7zip
 	dev-libs/glib:2
 	gui-libs/libadwaita:1
 	x11-libs/cairo
