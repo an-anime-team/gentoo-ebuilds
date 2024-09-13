@@ -6,18 +6,23 @@
 EAPI=8
 
 DEPEND="
-	gui-libs/libadwaita
+	>=gui-libs/libadwaita-1.4:1
 	app-arch/tar
 	app-arch/unzip
-	dev-util/xdelta:3[lzma]
+	app-arch/p7zip
 	app-arch/cabextract
 	dev-vcs/git
 	net-misc/curl
-	>=gui-libs/gtk-4
+	>=gui-libs/gtk-4:4
 	net-misc/iputils
 	virtual/libc
 	sys-auth/polkit
 	media-libs/libwebp
+
+	app-arch/xz-utils
+	dev-libs/glib:2
+	x11-libs/cairo
+	x11-libs/pango
 "
 
 RDEPEND="
