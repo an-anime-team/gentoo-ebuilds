@@ -29,7 +29,7 @@ RDEPEND="
 	${DEPEND}
 "
 
-BDEPEND=">=virtual/rust-1.63"
+RUST_MIN_VER="1.71.1"
 
 inherit cargo desktop git-r3 xdg-utils
 
