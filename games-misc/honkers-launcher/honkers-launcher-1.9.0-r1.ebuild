@@ -409,8 +409,6 @@ declare -A GIT_CRATES=(
 
 RDEPEND="${DEPEND}"
 
-RUST_MIN_VER="1.71.1"
-
 inherit cargo xdg-utils desktop
 
 DESCRIPTION="Honkers launcher for Linux with automatic anti-cheat patching"

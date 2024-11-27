@@ -301,7 +301,6 @@ RDEPEND="
 	${DEPEND}
 	gui-libs/libadwaita:1
 "
-RUST_MIN_VER="1.71.1"
 
 inherit cargo xdg-utils desktop
 
