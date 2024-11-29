@@ -64,7 +64,7 @@ jobs:
 
       - name: Create new ebuild file
         run: |
-          cp $( find "repo/games-misc/${{ inputs.package }}" -regextype sed -regex ".*/${{ inputs.package }}-[0-9]\+\.[0-9]\+\.[0-9]\+\.ebuild" | sort | tail -n1 ) "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}"
+          cp $( find "repo/games-misc/${{ inputs.package }}" -regextype sed -regex ".*/${{ inputs.package }}-[0-9]\+\.[0-9]\+\.[0-9]\+\(-r[0-9]\+\)\?\.ebuild" | sort -V | tail -n1 ) "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}"
 
       - name: Run pycargoebuild
         run: pycargoebuild --inplace "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" "./${{ inputs.package }}/"
