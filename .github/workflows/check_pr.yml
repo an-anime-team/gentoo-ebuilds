@@ -80,11 +80,11 @@ jobs:
 
       - name: Install dependencies of the package
         run: |
-          emerge --autounmask y --autounmask-continue y --onlydeps "=games-misc/${PACKAGE_FILENAME#.ebuild}"
+          emerge --autounmask y --autounmask-continue y --onlydeps "=games-misc/${PACKAGE_FILENAME%.ebuild}"
 
       - name: Try to build and install (merge) the package
         run: |
-          emerge --autounmask y --autounmask-continue y "=games-misc/${PACKAGE_FILENAME#.ebuild}"
+          emerge --autounmask y --autounmask-continue y "=games-misc/${PACKAGE_FILENAME%.ebuild}"
 
       - name: Clean distfiles cache
         run: |
