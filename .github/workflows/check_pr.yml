@@ -33,7 +33,7 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          echo "::set-output name=matrix::$(printf '%s\n' "${ALL_CHANGED_FILES[@]}" | grep '\.ebuild$' | jq -R . | jq -sc .)"
+          echo "matrix=$(printf '%s\n' "${ALL_CHANGED_FILES[@]}" | grep '\.ebuild$' | jq -R . | jq -sc .)" >> $GITHUB_OUTPUT
 
   test_changed_packages:
     name: Test build changed packages
