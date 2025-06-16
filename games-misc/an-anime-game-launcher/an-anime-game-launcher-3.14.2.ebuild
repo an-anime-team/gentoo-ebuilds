@@ -24,7 +24,6 @@ DEPEND="
 	virtual/libc
 	sys-auth/polkit
 	media-libs/libwebp
-	dev-libs/openssl:0/3
 
 	app-arch/xz-utils
 	dev-libs/glib:2
