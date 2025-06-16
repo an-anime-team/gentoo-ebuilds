@@ -67,7 +67,7 @@ jobs:
           cp $( find "repo/games-misc/${{ inputs.package }}" -regextype sed -regex ".*/${{ inputs.package }}-[0-9]\+\.[0-9]\+\.[0-9]\+\(-r[0-9]\+\)\?\.ebuild" | sort -V | tail -n1 ) "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}"
 
       - name: Run pycargoebuild
-        run: pycargoebuild --crate-tarball --crate-tarball-path "./${{ inputs.package }}-${PACKAGE_VERSION}-crates.tar.xz" --inplace "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" "./${{ inputs.package }}/"
+        run: pycargoebuild --crate-tarball --crate-tarball-path "/var/cache/distfiles/${{ inputs.package }}-${PACKAGE_VERSION}-crates.tar.xz" --inplace "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" "./${{ inputs.package }}/"
 
       - name: Run pkgcheck scan
         working-directory: ./repo/games-misc/${{ inputs.package }}
@@ -85,7 +85,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ inputs.package }}-${{ inputs.version }}-crates
-          files: ./${{ inputs.package }}-${{ inputs.version }}-crates.tar.xz
+          files: /var/cache/distfiles/${{ inputs.package }}-${{ inputs.version }}-crates.tar.xz
           fail_on_unmatched_files: true
           prerelease: true
           make_latest: false
