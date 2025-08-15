@@ -44,6 +44,8 @@ RDEPEND="
 	${DEPEND}
 "
 
+RUST_MIN_VER="1.87.0"
+
 inherit cargo xdg-utils desktop
 
 DESCRIPTION="Anime Game launcher with automatic anti-cheat patching"
