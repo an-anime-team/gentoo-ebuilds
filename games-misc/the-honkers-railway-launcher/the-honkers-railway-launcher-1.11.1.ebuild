@@ -43,7 +43,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	>=gui-libs/gtk-4.11
-	dev-libs/protobuf[protoc]
 "
 
 inherit cargo xdg-utils desktop
