@@ -1,0 +1,15 @@
+BDEPEND=>=gui-libs/gtk-4.11 || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* )
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DEPEND=gui-libs/libadwaita:1 app-arch/tar app-arch/unzip app-arch/cabextract dev-vcs/git gui-libs/gtk:4 net-misc/curl net-misc/iputils virtual/libc sys-auth/polkit media-libs/gst-plugins-good media-libs/gst-plugins-bad media-plugins/gst-plugins-libav media-libs/libwebp app-arch/xz-utils || ( >=app-arch/7zip-24.09[symlink(+)] app-arch/p7zip ) dev-libs/glib:2 gui-libs/libadwaita:1 x11-libs/cairo x11-libs/pango
+DESCRIPTION=Honkers Railway launcher for Linux with automatic anti-cheat patching
+EAPI=8
+HOMEPAGE=https://github.com/an-anime-team/honkers-launcher
+INHERIT=cargo xdg-utils desktop
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=GPL-3 Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD GPL-3 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
+RDEPEND=gui-libs/libadwaita:1 app-arch/tar app-arch/unzip app-arch/cabextract dev-vcs/git gui-libs/gtk:4 net-misc/curl net-misc/iputils virtual/libc sys-auth/polkit media-libs/gst-plugins-good media-libs/gst-plugins-bad media-plugins/gst-plugins-libav media-libs/libwebp app-arch/xz-utils || ( >=app-arch/7zip-24.09[symlink(+)] app-arch/p7zip ) dev-libs/glib:2 gui-libs/libadwaita:1 x11-libs/cairo x11-libs/pango
+SLOT=0
+SRC_URI=https://github.com/an-anime-team/the-honkers-railway-launcher/archive/1.12.1.tar.gz -> the-honkers-railway-launcher-1.12.1.tar.gz https://github.com/an-anime-team/anime-game-core/archive/044a1e83782fb853a9cfa8bcb807689a5c9d73ae.tar.gz -> anime-game-core-044a1e83782fb853a9cfa8bcb807689a5c9d73ae.gh.tar.gz https://github.com/an-anime-team/anime-launcher-sdk/archive/87c42064d8422a39b92efbd9035cbd38fffe8f91.tar.gz -> anime-launcher-sdk-87c42064d8422a39b92efbd9035cbd38fffe8f91.gh.tar.gz https://github.com/an-anime-team/gentoo-ebuilds/releases/download/the-honkers-railway-launcher-1.12.1-crates/the-honkers-railway-launcher-1.12.1-crates.tar.xz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a1af74aa9e34cd73aeac642cd0dd54d8	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed
+_md5_=d90946c677cc313044ef99cff88924f7
