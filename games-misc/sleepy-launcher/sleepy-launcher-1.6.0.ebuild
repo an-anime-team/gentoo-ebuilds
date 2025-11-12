@@ -24,7 +24,7 @@ DEPEND="
 	net-misc/iputils
 	virtual/libc
 	sys-auth/polkit
-	media-libs/libwebp
+	media-gfx/imagemagick[png,webp]
 
 	app-arch/xz-utils
 	dev-libs/glib:2
