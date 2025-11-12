@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=>=gui-libs/libadwaita-1.4:1 app-arch/tar app-arch/unzip app-arch/p7zip app-arch/cabextract dev-vcs/git net-misc/curl >=gui-libs/gtk-4:4 net-misc/iputils virtual/libc sys-auth/polkit media-libs/libwebp app-arch/xz-utils dev-libs/glib:2 x11-libs/cairo x11-libs/pango
 RESTRICT=mirror
 SLOT=0
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a1af74aa9e34cd73aeac642cd0dd54d8	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	git-r3	875eb471682d3e1f18da124be97dcc81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	86c81efc08f3f4c1104dbcb8df8e2885	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a1af74aa9e34cd73aeac642cd0dd54d8	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	git-r3	875eb471682d3e1f18da124be97dcc81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
 _md5_=f4d5fba1403b0a632975cdc784a0ef27
