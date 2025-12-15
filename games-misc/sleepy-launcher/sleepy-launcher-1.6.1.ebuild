@@ -24,7 +24,13 @@ DEPEND="
 	net-misc/iputils
 	virtual/libc
 	sys-auth/polkit
-	media-gfx/imagemagick[png,webp]
+	|| (
+		gui-libs/gdk-pixbuf-loader-webp
+		|| (
+			media-libs/libwebp
+			media-gfx/imagemagick[png,webp]
+		)
+	)
 
 	app-arch/xz-utils
 	dev-libs/glib:2
