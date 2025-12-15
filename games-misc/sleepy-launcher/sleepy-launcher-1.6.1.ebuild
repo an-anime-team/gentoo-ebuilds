@@ -48,6 +48,8 @@ BDEPEND="
 	>=gui-libs/gtk-4.11
 "
 
+RUST_MIN_VER="1.85.0"
+
 inherit cargo xdg-utils desktop
 
 DESCRIPTION="Sleepy game launcher for Linux with telemetry disabling"
