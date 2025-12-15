@@ -1,4 +1,4 @@
-BDEPEND=>=gui-libs/gtk-4.11 || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* )
+BDEPEND=>=gui-libs/gtk-4.11 || ( >=dev-lang/rust-bin-1.85.0:* >=dev-lang/rust-1.85.0:* )
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=gui-libs/libadwaita:1 app-arch/tar app-arch/unzip app-arch/cabextract dev-vcs/git gui-libs/gtk:4 net-misc/curl net-misc/iputils virtual/libc sys-auth/polkit || ( gui-libs/gdk-pixbuf-loader-webp || ( media-libs/libwebp media-gfx/imagemagick[png,webp] ) ) app-arch/xz-utils dev-libs/glib:2 gui-libs/libadwaita:1 x11-libs/cairo x11-libs/pango || ( >=app-arch/7zip-24.09[symlink(+)] app-arch/p7zip )
 DESCRIPTION=Sleepy game launcher for Linux with telemetry disabling
@@ -12,4 +12,4 @@ RDEPEND=gui-libs/libadwaita:1 app-arch/tar app-arch/unzip app-arch/cabextract de
 SLOT=0
 SRC_URI=https://github.com/an-anime-team/sleepy-launcher/archive/1.6.1.tar.gz -> sleepy-launcher-1.6.1.tar.gz https://github.com/an-anime-team/anime-game-core/archive/044a1e83782fb853a9cfa8bcb807689a5c9d73ae.tar.gz -> anime-game-core-044a1e83782fb853a9cfa8bcb807689a5c9d73ae.gh.tar.gz https://github.com/an-anime-team/anime-launcher-sdk/archive/f75593be9df416dd76ac6c5ce28140ed0feaef4d.tar.gz -> anime-launcher-sdk-f75593be9df416dd76ac6c5ce28140ed0feaef4d.gh.tar.gz https://github.com/an-anime-team/gentoo-ebuilds/releases/download/sleepy-launcher-1.6.1-crates/sleepy-launcher-1.6.1-crates.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	20da14430886f3de143eb101684fcf62	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a1af74aa9e34cd73aeac642cd0dd54d8	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	desktop	7b6f6e9d65093966fbc8475399c5dd4e
-_md5_=b9237a68f674b0d731b5cf4d2e34e34d
+_md5_=1f999564d20998e5a91c32837ff9d9f7
