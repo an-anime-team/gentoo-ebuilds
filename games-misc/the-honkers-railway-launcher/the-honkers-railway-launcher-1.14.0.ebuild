@@ -43,6 +43,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	>=gui-libs/gtk-4.11
+	dev-libs/protobuf[protoc]
 "
 
 RUST_MIN_VER="1.85.0"
