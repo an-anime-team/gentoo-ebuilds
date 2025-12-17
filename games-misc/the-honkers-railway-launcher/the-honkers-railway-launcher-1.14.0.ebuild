@@ -46,7 +46,7 @@ BDEPEND="
 	dev-libs/protobuf[protoc]
 "
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.88.0"
 
 inherit cargo xdg-utils desktop
 
