@@ -82,6 +82,7 @@ src_prepare() {
 	# patch the .desktop file to work in non-AppImage environment
 	sed -i 's/Icon=icon/Icon=moe.launcher.sleepy-launcher/' assets/sleepy-launcher.desktop || die
 	sed -i 's/Exec=AppRun/Exec=sleepy-launcher/' assets/sleepy-launcher.desktop || die
+	echo "StartupWmClass=moe.launcher.sleepy-launcher" >> assets/sleepy-launcher.desktop
 	# avoid stripping by the build system, we do that ourselves in Gentoo
 	sed -i 's/strip = true/strip = false/' Cargo.toml || die
 }
