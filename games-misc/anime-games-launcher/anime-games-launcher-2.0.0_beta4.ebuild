@@ -559,6 +559,8 @@ RDEPEND="
 	>=gui-libs/libadwaita-1.7
 "
 
+RUST_MIN_VER="1.92"
+
 inherit cargo xdg-utils desktop
 
 DESCRIPTION="Universal linux launcher for anime games"
@@ -566,7 +568,7 @@ DESCRIPTION="Universal linux launcher for anime games"
 # does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/an-anime-team/anime-games-launcher"
 SRC_URI="
-	https://github.com/an-anime-team/anime-games-launcher/archive/refs/tags/v${PV/_beta/-beta}.tar.gz -> ${P}.tar.gz
+	https://github.com/an-anime-team/anime-games-launcher/archive/refs/tags/v${PV/_beta/-beta}.tar.gz -> ${P/_beta/-beta}.tar.gz
 	${CARGO_CRATE_URIS}
 "
 
@@ -582,20 +584,29 @@ KEYWORDS="~amd64"
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
+ASSETDIR="crates/anime-games-launcher/assets/"
+
+src_unpack() {
+	default
+    cargo_src_unpack
+	rmdir ${P}
+	mv "${P/_beta/-beta}" ${P}
+}
 
 src_prepare() {
 	default
+	ls
 	# patch the .desktop file to work in non-AppImage environment
-	sed -i 's/Icon=icon/Icon=moe.launcher.anime-games-launcher/' assets/anime-games-launcher.desktop || die
-	sed -i 's/Exec=AppRun/Exec=anime-games-launcher/' assets/anime-games-launcher.desktop || die
+	sed -i 's/Icon=icon/Icon=moe.launcher.anime-games-launcher/' "${ASSETDIR}/anime-games-launcher.desktop" || die
+	sed -i 's/Exec=AppRun/Exec=anime-games-launcher/' "${ASSETDIR}/anime-games-launcher.desktop" || die
 	# avoid stripping by the build system, we do that ourselves in Gentoo
 	sed -i 's/strip = true/strip = false/' Cargo.toml || die
 }
 
 src_install() {
-	cargo_src_install
-	domenu assets/anime-games-launcher.desktop
-	newicon assets/images/icon.png moe.launcher.anime-games-launcher.png
+	cargo_src_install --path crates/anime-games-launcher
+	domenu "${ASSETDIR}/anime-games-launcher.desktop"
+	newicon "${ASSETDIR}/images/icon.png" "moe.launcher.anime-games-launcher.png"
 }
 
 pkg_postinst() {
