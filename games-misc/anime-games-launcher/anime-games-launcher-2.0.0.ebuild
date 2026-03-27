@@ -582,13 +582,12 @@ CRATES="
 DEPEND="
 	app-arch/tar
 	app-arch/unzip
-	app-arch/p7zip
-	dev-util/xdelta:3[lzma]
-	app-arch/cabextract
+	|| (
+		>=app-arch/7zip-24.09[symlink(+)]
+		app-arch/p7zip
+	)
 	dev-vcs/git
-	net-misc/curl
 	>=gui-libs/gtk-4.18
-	net-misc/iputils
 	virtual/libc
 	sys-auth/polkit
 	x11-libs/pango
@@ -630,7 +629,7 @@ ASSETDIR="crates/anime-games-launcher/assets/"
 
 src_unpack() {
 	default
-    cargo_src_unpack
+	cargo_src_unpack
 }
 
 src_prepare() {
