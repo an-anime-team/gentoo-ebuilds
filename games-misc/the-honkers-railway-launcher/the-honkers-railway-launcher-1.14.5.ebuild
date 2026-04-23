@@ -27,7 +27,13 @@ DEPEND="
 	media-libs/gst-plugins-good
 	media-libs/gst-plugins-bad
 	media-plugins/gst-plugins-libav
-	media-libs/libwebp
+	|| (
+		gui-libs/gdk-pixbuf-loader-webp
+		|| (
+			media-libs/libwebp
+			media-gfx/imagemagick[png,webp]
+		)
+	)
 
 	app-emulation/winetricks
 	app-arch/xz-utils
