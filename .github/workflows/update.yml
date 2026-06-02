@@ -41,6 +41,9 @@ jobs:
           path: |
             /var/cache/distfiles
 
+      - name: Unmask pycargoebuild
+        run: echo "<=app-portage/pycargoebuild-0.15.2 ~amd64" >> /etc/portage/packages.accept_keywords/pycargoebuild
+
       - name: Install pycargoebuild
         run: emerge app-portage/pycargoebuild
 
