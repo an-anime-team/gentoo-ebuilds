@@ -36,7 +36,6 @@ DEPEND="
 		)
 	)
 
-	app-emulation/winetricks
 	app-arch/xz-utils
 	|| (
 		>=app-arch/7zip-24.09[symlink(+)]
