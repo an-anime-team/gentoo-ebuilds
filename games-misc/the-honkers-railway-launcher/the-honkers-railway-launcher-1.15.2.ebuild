@@ -9,9 +9,9 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[anime-game-core]='https://github.com/an-anime-team/anime-game-core;de96f35b5a7e863f077d27abd50f6ee977cc92de;anime-game-core-%commit%'
-	[anime-launcher-sdk]='https://github.com/an-anime-team/anime-launcher-sdk;c0991afb76878f17abf754effa64d86125af8110;anime-launcher-sdk-%commit%'
-	[sophon-lib]='https://github.com/dawn-winery/sophon-tools;89f4a70476f7e5c24f03a6c269a8b291372cfd5e;sophon-tools-%commit%/sophon-lib'
+	[anime-game-core]='https://github.com/an-anime-team/anime-game-core;ba60faf15940e21fd20134c8f533fe981d313fee;anime-game-core-%commit%'
+	[anime-launcher-sdk]='https://github.com/an-anime-team/anime-launcher-sdk;4b9cb6efb04bacec57747e19e7277086d201562e;anime-launcher-sdk-%commit%'
+	[sophon-lib]='https://github.com/dawn-winery/sophon-tools;58d223a5e1268bb7327bb31fe5c664aff56f6b6f;sophon-tools-%commit%/sophon-lib'
 )
 
 DEPEND="
@@ -74,7 +74,7 @@ LICENSE="GPL-3"
 # Dependent crate licenses
 LICENSE+="
 	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD
-	CDLA-Permissive-2.0 GPL-3 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
+	CDLA-Permissive-2.0 GPL-3 GPL-3+ ISC MIT MPL-2.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
