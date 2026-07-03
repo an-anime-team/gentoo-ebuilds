@@ -2,12 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>ionen@gentoo.org</email>
-		<name>Ionen Wolkens</name>
+		<description>https://github.com/NelloKudo</description>
+		<name>NelloKudo</name>
 	</maintainer>
 	<maintainer type="project">
-		<email>wine@gentoo.org</email>
-		<name>Wine</name>
+		<description>https://dawn.wine/</description>
+		<name>Dawn Winery</name>
 	</maintainer>
 	<use>
 		<flag name="arm64ec">Enable support for running x86_64 applications on arm64 via binary translation</flag>
@@ -36,7 +36,7 @@
 		</flag>
 	</use>
 	<upstream>
-		<changelog>https://github.com/ValveSoftware/Proton/wiki/Changelog</changelog>
-		<remote-id type="github">ValveSoftware/wine</remote-id>
+		<changelog>https://github.com/dawn-winery/dwproton-mirror/blob/dwproton/11.0-5/CHANGELOGS.md</changelog>
+		<remote-id type="github">dawn-winery/dwproton-mirror</remote-id>
 	</upstream>
 </pkgmetadata>
