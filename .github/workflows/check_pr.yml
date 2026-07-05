@@ -22,14 +22,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Run pkgcheck scan
         run: pkgcheck scan
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@v47
 
       - name: Filter changed files
         id: ebuild-files
@@ -61,14 +61,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install repo
         run: |
           ./.github/workflow-utils/add-repo.sh ./
 
       - name: Cache distfiles
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           key: distfiles-cache
           path: |
