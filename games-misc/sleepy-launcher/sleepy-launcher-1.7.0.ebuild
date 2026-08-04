@@ -445,7 +445,7 @@ BDEPEND="
 	>=gui-libs/gtk-4.11
 "
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.89.0"
 
 inherit cargo xdg-utils desktop
 
