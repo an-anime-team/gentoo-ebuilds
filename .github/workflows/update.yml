@@ -70,7 +70,7 @@ jobs:
           cp $( find "repo/games-misc/${{ inputs.package }}" -regextype sed -regex ".*/${{ inputs.package }}-[0-9]\+\.[0-9]\+\.[0-9]\+\(-r[0-9]\+\)\?\.ebuild" | sort -V | tail -n1 ) "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}"
 
       - name: Run pycargoebuild
-        run: pycargoebuild --crate-tarball --crate-tarball-path "/var/cache/distfiles/${{ inputs.package }}-${PACKAGE_VERSION}-crates.tar.xz" --inplace "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" "./${{ inputs.package }}/"
+        run: pycargoebuild --inplace "repo/games-misc/${{ inputs.package }}/${NEW_PACKAGE_EBUILD}" "./${{ inputs.package }}/"
 
       - name: Run pkgcheck scan
         working-directory: ./repo/games-misc/${{ inputs.package }}
@@ -83,15 +83,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git add .
           pkgdev commit -m "games-misc/${{ inputs.package }}: add ${{ inputs.version }}"
-
-      - name: Upload generated tarball as release
-        uses: softprops/action-gh-release@v3
-        with:
-          tag_name: ${{ inputs.package }}-${{ inputs.version }}-crates
-          files: /var/cache/distfiles/${{ inputs.package }}-${{ inputs.version }}-crates.tar.xz
-          fail_on_unmatched_files: true
-          prerelease: true
-          make_latest: false
 
       - name: Create a pull request with the new ebuild
         uses: peter-evans/create-pull-request@v8
