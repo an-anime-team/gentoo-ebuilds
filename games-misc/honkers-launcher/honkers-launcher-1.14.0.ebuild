@@ -487,6 +487,10 @@ DEPEND="
 	x11-libs/pango
 "
 
+BDEPEND="
+	dev-libs/protobuf[protoc]
+"
+
 declare -A GIT_CRATES=(
 	[anime-game-core]='https://github.com/an-anime-team/anime-game-core;f1f0a23a9a6a0d66635796a52f5ef4d1eae18d77;anime-game-core-%commit%'
 	[anime-launcher-sdk]='https://github.com/an-anime-team/anime-launcher-sdk;c6825980b24a7c465fb41855db650a650cee0141;anime-launcher-sdk-%commit%'
@@ -494,6 +498,8 @@ declare -A GIT_CRATES=(
 )
 
 RDEPEND="${DEPEND}"
+
+RUST_MIN_VER="1.94.1"
 
 inherit cargo xdg-utils desktop
 
