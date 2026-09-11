@@ -519,7 +519,7 @@ RDEPEND="
 	${DEPEND}
 "
 
-RUST_MIN_VER="1.89.0"
+RUST_MIN_VER="1.94.1"
 
 inherit cargo xdg-utils desktop
 
