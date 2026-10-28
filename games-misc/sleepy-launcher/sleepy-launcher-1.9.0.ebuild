@@ -464,7 +464,7 @@ DEPEND="
 	app-arch/unzip
 	app-arch/cabextract
 	dev-vcs/git
-	gui-libs/gtk:4
+	>=gui-libs/gtk-4:4
 	net-misc/curl
 	net-misc/iputils
 	virtual/libc
@@ -482,18 +482,15 @@ DEPEND="
 	gui-libs/libadwaita:1
 	x11-libs/cairo
 	x11-libs/pango
-	|| (
-		>=app-arch/7zip-24.09[symlink(+)]
-		app-arch/p7zip
-	)
+	>=app-arch/7zip-24.09[symlink(+)]
 "
 
 RDEPEND="${DEPEND}"
 BDEPEND="
-	>=gui-libs/gtk-4.11
+	dev-libs/protobuf[protoc]
 "
 
-RUST_MIN_VER="1.89.0"
+RUST_MIN_VER="1.95.0"
 
 inherit cargo xdg-utils desktop
 
