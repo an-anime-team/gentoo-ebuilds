@@ -583,10 +583,7 @@ CRATES="
 DEPEND="
 	app-arch/tar
 	app-arch/unzip
-	|| (
-		>=app-arch/7zip-24.09[symlink(+)]
-		app-arch/p7zip
-	)
+	>=app-arch/7zip-24.09[symlink(+)]
 	dev-vcs/git
 	>=gui-libs/gtk-4.18
 	virtual/libc
