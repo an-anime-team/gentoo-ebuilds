@@ -52,7 +52,7 @@ jobs:
         run: |
           echo "PACKAGE_VERSION=${PACKAGE_REF#v}" >> $GITHUB_ENV
           echo "NEW_PACKAGE_EBUILD=${{ inputs.package }}-${PACKAGE_REF#v}.ebuild" >> $GITHUB_ENV
-          if [[ ${{ inputs.package }} = "anime-games-launcher"]]; then echo "PACKAGE_SUBDIR=crates/anime-games-launcher" >> $GITHUB_ENV; fi
+          if [ "${{ inputs.package }}" = "anime-games-launcher"]; then echo "PACKAGE_SUBDIR=crates/anime-games-launcher" >> $GITHUB_ENV; fi
 
       - name: Checkout
         uses: actions/checkout@v7
